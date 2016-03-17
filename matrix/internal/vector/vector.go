@@ -10,3 +10,15 @@ func MakeZero(numrow int) Vector {
 	return make(Vector, numrow)
 }
 
+// MemSet fills a vector with the given value.
+// It mimics the behavior of std::memset.
+// Credits to icza of stackoverflow.
+func MemSet(v []Vector, value float64){
+	if len(v) == 0 {
+		return
+	}
+	v[0] = value
+	for i := 1; i < len(v); i *= 2{
+		copy(v[i:],v[:i])
+	}
+}

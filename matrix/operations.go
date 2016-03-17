@@ -41,3 +41,18 @@ func (a matrix) Multiply(b matrix) (matrix, error) {
 	}
 	return result, nil
 }
+
+// Transpose returns a transposed receiver matrix.
+func (a matrix) Transpose() matrix {
+	result := MakeZero(a.lenCol,a.lenRow)
+	for row := 0; row < result.lenRow; row++{
+		for col := 0; col < result.lenCol; col++{
+			result.data[row][col] = a.data[col][row]
+		}
+	}
+	return result
+}
+
+func (a matrix) RowEchelon() matrix {
+	
+}
