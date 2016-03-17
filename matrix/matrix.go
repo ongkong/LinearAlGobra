@@ -5,7 +5,7 @@ package matrix
 
 import (
 	"errors"
-	"./internal/vector"
+	"github.com/ongkong/internal/vector"
 	"math"
 )
 
@@ -33,11 +33,12 @@ func MakeZero(lenrow, lencol int) matrix {
 
 // MakeFilled creates a matrix of the given dimension filled with the given value.
 func MakeFilled(lenrow, lencol int, value float64) matrix {
-	result := MakeZero(lenrow, lencol);
-	for row := 0; row < result.lenRow; row++{
-		vector.Memset(result.data[row],value)
+	result := MakeZero(lenrow, lencol)
+	for row := 0; row < result.lenRow; row++ {
+		vector.Memset(result.data[row], value)
 	}
 }
+
 // Make creates a Matrix with the given 2x2 float64 slice
 // All the slices must be of the same length.
 func Make(args [][]float64) (matrix, error) {
